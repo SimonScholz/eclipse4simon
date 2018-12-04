@@ -1,0 +1,8 @@
+= Eclipse 4 additions and enhancements image:https://travis-ci.org/SimonScholz/eclipse4simon.svg?branch=master["Build Status", link="https://travis-ci.org/SimonScholz/eclipse4simon"]
+
+The purpose of this repository is to provide additions and enhancements for Eclipse 4, especially for features, which were available in Eclipse 3 and not in Eclipse 4.
+
+== UI Freeze Monitoring
+
+Describtion will follow
+
