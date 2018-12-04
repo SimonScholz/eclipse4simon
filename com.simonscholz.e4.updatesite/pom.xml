@@ -6,7 +6,7 @@
 		<version>0.1.0-SNAPSHOT</version>
 		<relativePath>../</relativePath>
 	</parent>
-	<artifactId>com.simonscholz.e4.updatesite</artifactId>
+	<artifactId>update-site</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>eclipse-repository</packaging>
 

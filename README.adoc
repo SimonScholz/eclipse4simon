@@ -6,3 +6,11 @@ The purpose of this repository is to provide additions and enhancements for Ecli
 
 Describtion will follow
 
+== Uploading the p2 update site
+
+[source, curl]
+----
+curl -T updatesite.zip -u<user-id>:<api-token> -H "X-Bintray-Explode: 1" -H "X-Bintray-Package:eclipse4simon" -H "X-Bintray-Version:0.1.0" https://dl.bintray.com/simon-scholz/eclipse-apps/eclipse4simon/0.1.0
+----
+
+
