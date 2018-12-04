@@ -6,6 +6,13 @@
    <feature url="features/com.simonscholz.e4.monitoring.feature_1.0.0.qualifier.jar" id="com.simonscholz.e4.monitoring.feature" version="1.0.0.qualifier">
       <category name="Freeze-Monitoring"/>
    </feature>
+   <feature id="com.simonscholz.e4.monitoring.feature.source" version="1.0.0.qualifier">
+      <category name="Developer-Resources"/>
+   </feature>
+   <feature id="com.simonscholz.e4.services.feature.source" version="1.0.0.qualifier">
+      <category name="Developer-Resources"/>
+   </feature>
    <category-def name="Service-API" label="Service API"/>
    <category-def name="Freeze-Monitoring" label="Freeze Monitoring"/>
+   <category-def name="Developer-Resources" label="Developer Resources"/>
 </site>
