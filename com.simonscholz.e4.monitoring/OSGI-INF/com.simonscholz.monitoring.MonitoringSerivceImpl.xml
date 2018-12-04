@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="com.simonscholz.monitoring.MonitoringSerivceImpl">
+   <service>
+      <provide interface="com.simonscholz.services.monitoring.FreezeMonitorService"/>
+   </service>
+   <implementation class="com.simonscholz.monitoring.MonitoringSerivceImpl"/>
+</scr:component>

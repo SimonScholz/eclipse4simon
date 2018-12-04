@@ -9,6 +9,7 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.swt.widgets.Display;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
+import org.osgi.service.component.annotations.Component;
 
 import com.simonscholz.monitoring.EventLoopMonitorThread.Parameters;
 import com.simonscholz.services.monitoring.FreezeMonitorService;
@@ -18,7 +19,8 @@ import com.simonscholz.services.monitoring.PreferenceConstants;
  * Starts the event loop monitoring thread. Initializes preferences from
  * {@link IPreferenceStore}.
  */
-public class MonitoringStartup implements FreezeMonitorService {
+@Component
+public class MonitoringSerivceImpl implements FreezeMonitorService {
 	private IPreferenceStore preferenceStore;
 	private IEclipsePreferences eclipsePreferences;
 
