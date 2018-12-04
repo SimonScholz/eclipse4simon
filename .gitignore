@@ -1,0 +1,18 @@
+.searchable
+screenshots/
+
+.class
+.metadata
+**/bin/
+**/target/
+**/build/
+**/.gradle/*
+
+# You can use wildcards as well
+
+# For example Unix editors 
+# sometimes make file copies ending
+# with ~
+# To ignore them use:
+
+*~

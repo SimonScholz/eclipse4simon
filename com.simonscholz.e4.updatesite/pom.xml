@@ -1,0 +1,18 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.simonscholz.e4</groupId>
+		<artifactId>com.simonscholz.e4.root</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>../</relativePath>
+	</parent>
+	<artifactId>com.simonscholz.e4.updatesite</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>eclipse-repository</packaging>
+
+	<properties>
+		<!-- Do not skip the deployment here -->
+		<maven.deploy.skip>false</maven.deploy.skip>
+	</properties>
+
+</project>

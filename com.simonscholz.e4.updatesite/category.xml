@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.simonscholz.e4.services.feature_1.0.0.qualifier.jar" id="com.simonscholz.e4.services.feature" version="1.0.0.qualifier">
+      <category name="Service-API"/>
+   </feature>
+   <feature url="features/com.simonscholz.e4.monitoring.feature_1.0.0.qualifier.jar" id="com.simonscholz.e4.monitoring.feature" version="1.0.0.qualifier">
+      <category name="Freeze-Monitoring"/>
+   </feature>
+   <category-def name="Service-API" label="Service API"/>
+   <category-def name="Freeze-Monitoring" label="Freeze Monitoring"/>
+</site>
