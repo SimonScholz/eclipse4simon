@@ -8,7 +8,7 @@ A p2 update site can be found here: https://dl.bintray.com/simon-scholz/eclipse-
 
 == UI Freeze Monitoring
 
-Describtion will follow
+Description will follow
 
 == Working with this code
 

@@ -18,6 +18,8 @@
 
 		<module>com.simonscholz.e4.monitoring</module>
 
+		<module>com.simonscholz.app.sample</module>
+
 		<!-- features -->
 		<module>com.simonscholz.e4.services.feature</module>
 
