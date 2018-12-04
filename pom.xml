@@ -24,7 +24,7 @@
 		<module>com.simonscholz.e4.monitoring.feature</module>
 
 		<!-- p2 repository for updates -->
-		<module>com.simonscholz.e4.updatesite</module>
+		<module>update-site</module>
 	</modules>
 
 	<issueManagement>

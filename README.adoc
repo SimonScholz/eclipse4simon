@@ -2,15 +2,32 @@
 
 The purpose of this repository is to provide additions and enhancements for Eclipse 4, especially for features, which were available in Eclipse 3 and not in Eclipse 4.
 
+== Obtain the libraries
+
+A p2 update site can be found here: https://dl.bintray.com/simon-scholz/eclipse-apps/eclipse4simon/0.1.0/
+
 == UI Freeze Monitoring
 
 Describtion will follow
 
-== Uploading the p2 update site
+== Working with this code
+
+These chapters are for developers, who are willing work with the code in this repository.
+
+=== Building the projects
+
+The projects can be build by using the maven wrapper.
+
+[source, console]
+----
+./mvnw clean verify
+----
+
+=== Uploading the update site to Bintray
 
 [source, curl]
 ----
-curl -T updatesite.zip -u<user-id>:<api-token> -H "X-Bintray-Explode: 1" -H "X-Bintray-Package:eclipse4simon" -H "X-Bintray-Version:0.1.0" https://dl.bintray.com/simon-scholz/eclipse-apps/eclipse4simon/0.1.0
+curl -T updatesite.zip -u<user-id>:<api-token> -H "X-Bintray-Explode: 1" -H "X-Bintray-Package:eclipse4simon" -H "X-Bintray-Version:0.1.0" https://api.bintray.com/content/simon-scholz/eclipse-apps/eclipse4simon/0.1.0/
 ----
 
 
