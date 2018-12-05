@@ -23,6 +23,8 @@ import com.simonscholz.services.monitoring.PreferenceConstants;
 public class MonitoringSerivceImpl implements FreezeMonitorService {
 	private IPreferenceStore preferenceStore;
 	private IEclipsePreferences eclipsePreferences;
+	private EventLoopMonitorThread monitoringThread;
+	private boolean monitorThreadRestartInProgress;
 
 	/**
 	 * Creates and starts a new monitoring thread.
@@ -40,21 +42,52 @@ public class MonitoringSerivceImpl implements FreezeMonitorService {
 					e));
 		}
 
-		final EventLoopMonitorThread thread = temporaryThread;
+		monitoringThread = temporaryThread;
 		// Final setup and start asynchronously on the display thread.
 		display.asyncExec(() -> {
 			// If we're still running when display gets disposed, shutdown the thread.
-			display.disposeExec(() -> thread.shutdown());
-			thread.start();
+			display.disposeExec(() -> monitoringThread.shutdown());
+			monitoringThread.start();
 		});
 	}
 
-	public void setPreferences(IPreferenceStore preferenceStore) {
+	@Override
+	public void setPreferencesAndStartIfNecessary(IPreferenceStore preferenceStore, Display display) {
 		this.preferenceStore = preferenceStore;
+		this.preferenceStore.addPropertyChangeListener(event -> {
+			String property = event.getProperty();
+			restartMonitoringThread(preferenceStore.getBoolean(PreferenceConstants.MONITORING_ENABLED), display,
+					property);
+		});
 	}
 
-	public void setPreferences(IEclipsePreferences eclipsePreferences) {
+	@Override
+	public void setPreferencesAndStartIfNecessary(IEclipsePreferences eclipsePreferences, Display display) {
 		this.eclipsePreferences = eclipsePreferences;
+		eclipsePreferences.addPreferenceChangeListener(event -> {
+			String key = event.getKey();
+			restartMonitoringThread(PreferenceConstants.MONITORING_ENABLED.equals(event.getKey())
+					&& Boolean.TRUE.equals(event.getNewValue()), display, key);
+		});
+	}
+
+	private void restartMonitoringThread(boolean isMonitoringEnabled, Display display, String key) {
+		if (!isPreferenceChangeRelevant(key)) {
+			return;
+		}
+
+		synchronized (this) {
+			if (monitorThreadRestartInProgress) {
+				return;
+			}
+
+			monitorThreadRestartInProgress = true;
+
+			// Schedule the event to restart the thread after all preferences have had
+			// enough time
+			// to propagate.
+			display.asyncExec(() -> refreshMonitoringThread(display, isMonitoringEnabled));
+		}
 	}
 
 	private EventLoopMonitorThread.Parameters loadPreferences() {
@@ -129,5 +162,27 @@ public class MonitoringSerivceImpl implements FreezeMonitorService {
 		args.logToErrorLog = preferenceStore.getBoolean(PreferenceConstants.LOG_TO_ERROR_LOG);
 
 		return args;
+	}
+
+	private synchronized void refreshMonitoringThread(Display display, boolean isMonitoringEnabled) {
+		if (monitoringThread != null) {
+			monitoringThread.shutdown();
+			monitoringThread = null;
+		}
+		monitorThreadRestartInProgress = false;
+
+		if (isMonitoringEnabled) {
+			createAndStartMonitorThread(display);
+		}
+	}
+
+	private boolean isPreferenceChangeRelevant(String key) {
+		return key.equals(PreferenceConstants.MONITORING_ENABLED)
+				|| key.equals(PreferenceConstants.DEADLOCK_REPORTING_THRESHOLD_MILLIS)
+				|| key.equals(PreferenceConstants.LONG_EVENT_ERROR_THRESHOLD_MILLIS)
+				|| key.equals(PreferenceConstants.LONG_EVENT_WARNING_THRESHOLD_MILLIS)
+				|| key.equals(PreferenceConstants.LOG_TO_ERROR_LOG) || key.equals(PreferenceConstants.MAX_STACK_SAMPLES)
+				|| key.equals(PreferenceConstants.UI_THREAD_FILTER)
+				|| key.equals(PreferenceConstants.NONINTERESTING_THREAD_FILTER);
 	}
 }
