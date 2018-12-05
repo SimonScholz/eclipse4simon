@@ -59,6 +59,9 @@ public class MonitoringSerivceImpl implements FreezeMonitorService {
 			restartMonitoringThread(preferenceStore.getBoolean(PreferenceConstants.MONITORING_ENABLED), display,
 					property);
 		});
+		restartMonitoringThread(
+				preferenceStore.getBoolean(PreferenceConstants.MONITORING_ENABLED),
+				display, PreferenceConstants.MONITORING_ENABLED);
 	}
 
 	@Override
@@ -69,6 +72,9 @@ public class MonitoringSerivceImpl implements FreezeMonitorService {
 			restartMonitoringThread(PreferenceConstants.MONITORING_ENABLED.equals(event.getKey())
 					&& Boolean.TRUE.equals(event.getNewValue()), display, key);
 		});
+		restartMonitoringThread(
+				eclipsePreferences.getBoolean(PreferenceConstants.MONITORING_ENABLED, false),
+				display, PreferenceConstants.MONITORING_ENABLED);
 	}
 
 	private void restartMonitoringThread(boolean isMonitoringEnabled, Display display, String key) {
