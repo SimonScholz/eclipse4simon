@@ -4,7 +4,7 @@ The purpose of this repository is to provide additions and enhancements for Ecli
 
 == Obtain the libraries
 
-A p2 update site can be found here: https://dl.bintray.com/simon-scholz/eclipse-apps/eclipse4simon/0.1.0/
+A p2 update site can be found here: https://dl.bintray.com/simon-scholz/eclipse-apps/eclipse4simon/
 
 == UI Freeze Monitoring
 
@@ -27,7 +27,7 @@ The projects can be build by using the maven wrapper.
 
 [source, curl]
 ----
-curl -T updatesite.zip -u<user-id>:<api-token> -H "X-Bintray-Explode: 1" -H "X-Bintray-Package:eclipse4simon" -H "X-Bintray-Version:0.1.0" https://api.bintray.com/content/simon-scholz/eclipse-apps/eclipse4simon/0.1.0/
+curl -T ./update-site/target/updatesite.zip -u<user-id>:<api-token> -H "X-Bintray-Explode: 1" -H "X-Bintray-Package:eclipse4simon" -H "X-Bintray-Version:0.1.0" https://api.bintray.com/content/simon-scholz/eclipse-apps/eclipse4simon/0.1.0/
 ----
 
 
