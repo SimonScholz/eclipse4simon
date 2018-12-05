@@ -1,6 +1,8 @@
 package com.simonscholz.app.sample;
 
+import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.e4.core.di.extensions.Preference;
 import org.eclipse.e4.ui.workbench.lifecycle.PostContextCreate;
 import org.eclipse.e4.ui.workbench.lifecycle.PreSave;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessAdditions;
@@ -8,6 +10,7 @@ import org.eclipse.e4.ui.workbench.lifecycle.ProcessRemovals;
 import org.eclipse.swt.widgets.Display;
 
 import com.simonscholz.services.monitoring.FreezeMonitorService;
+import com.simonscholz.services.monitoring.PreferenceConstants;
 
 /**
  * This is a stub implementation containing e4 LifeCycle annotated methods.<br />
@@ -19,8 +22,10 @@ import com.simonscholz.services.monitoring.FreezeMonitorService;
 public class E4LifeCycle {
 
 	@PostContextCreate
-	void postContextCreate(IEclipseContext workbenchContext, Display display, FreezeMonitorService freezeMonitorService) {
-		freezeMonitorService.createAndStartMonitorThread(display);
+	void postContextCreate(IEclipseContext workbenchContext, Display display, FreezeMonitorService freezeMonitorService, @Preference IEclipsePreferences prefs) {
+		prefs.putBoolean(PreferenceConstants.MONITORING_ENABLED, true);
+		
+		freezeMonitorService.setPreferencesAndStartIfNecessary(prefs, display);
 	}
 
 	@PreSave
