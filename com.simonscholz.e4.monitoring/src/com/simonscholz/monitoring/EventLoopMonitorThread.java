@@ -669,6 +669,10 @@ public class EventLoopMonitorThread extends Thread {
 		if (logToErrorLog) {
 			defaultLogger.accept(event);
 		}
+		
+		if(externalLoggers != null) {
+			externalLoggers.forEach(exLog -> exLog.accept(event));
+		}
 	}
 
 	private ThreadInfo[] captureThreadStacks(boolean dumpAllThreads) {
