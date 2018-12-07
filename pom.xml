@@ -10,23 +10,10 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<!-- target -->
-		<module>target-platform</module>
-
-		<!-- bundles -->
-		<module>com.simonscholz.e4.services</module>
-
-		<module>com.simonscholz.e4.monitoring</module>
-
-		<module>com.simonscholz.app.sample</module>
-
-		<!-- features -->
-		<module>com.simonscholz.e4.services.feature</module>
-
-		<module>com.simonscholz.e4.monitoring.feature</module>
-
-		<!-- p2 repository for updates -->
-		<module>update-site</module>
+		<module>bundles</module>
+		<module>releng</module>
+		<module>features</module>
+		<module>example</module>
 	</modules>
 
 	<issueManagement>

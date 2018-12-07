@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Sample App
-Bundle-SymbolicName: com.simonscholz.app.sample;singleton:=true
+Bundle-SymbolicName: com.simonscholz.sample.app;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: SIMONSCHOLZ
 Require-Bundle: javax.inject;bundle-version="0.0.0",
