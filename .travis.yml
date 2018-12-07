@@ -13,7 +13,7 @@ cache:
   - $HOME/.gradle
 
 # Build the server first and then build the eclipse plug-ins
-script: "./mvnw clean verify"
+script: ./mvnw clean verify
 
 # integration with codecov
 after_success:
