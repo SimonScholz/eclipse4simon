@@ -6,9 +6,60 @@ The purpose of this repository is to provide additions and enhancements for Ecli
 
 A p2 update site can be found here: https://dl.bintray.com/simon-scholz/eclipse-apps/eclipse4simon/
 
+== Using the services
+
+The interfaces for the services are defined in the _com.simonscholz.e4.services_ bundle,
+so in case you want to use a certain service the _com.simonscholz.e4.services_ bundle has to be added as dependency.
+
 == UI Freeze Monitoring
 
-Description will follow
+To make use of the freeze monitoring the _com.simonscholz.e4.services_ and _com.simonscholz.e4.monitoring_ has to be added to the runtime.
+
+CAUTION: The `FreezeMonitorService` has 3 methods, but only one should be invoked depending on your needs.
+
+=== Using default Freeze Monitoring
+
+Eclipse 4 applications can obtain an instance of a `FreezeMonitorService` by simply injecting it into the lifecycle class or an addon.
+
+[source,java]
+----
+@PostContextCreate
+void postContextCreate(Display display, FreezeMonitorService freezeMonitorService) {
+	freezeMonitorService.createAndStartMonitorThread(display); <1>
+}
+----
+<1> This will simply start the Freeze Monitoring with default values
+
+Alternatively the `FreezeMonitorService` can also be obtained by using a `BundleContext`, e.g., in a bundle activator.
+
+WARNING: Bundle activators can cause performance issues therefore it is better to use other approaches.
+
+=== Using IEclipsePreferences for Freeze Monitoring
+
+[source, java]
+----
+@PostContextCreate
+void postContextCreate(IEclipseContext workbenchContext, Display display, FreezeMonitorService freezeMonitorService, @Preference IEclipsePreferences prefs) {
+	freezeMonitorService.setPreferencesAndStartIfNecessary(prefs, display); <1>
+}
+----
+
+This registers a listener, which will start the freeze monitoring once the `com.simonscholz.services.monitoring.PreferenceConstants.MONITORING_ENABLED` value is set to `true`.
+
+TIP: See other values in `com.simonscholz.services.monitoring.PreferenceConstants`.
+
+=== Using IPreferenceStore for Freeze Monitoring
+
+In case you're still using the `IPreferenceStore`  the `FreezeMonitorService` also provides a `setPreferencesAndStartIfNecessary`,
+which accepts an `IPreferenceStore`.
+
+Everything else is similar to the approach with the `IEclipsePreferences`.
+
+=== UI for setting the preferences
+
+You can have your custom `org.eclipse.jface.preference.PreferenceDialog` in an Eclipse application and use an `IPreferenceStore` as described earlier.
+
+Or you can for instance use the `PreferenceWindow` from Nebula.
 
 == Working with this code
 
