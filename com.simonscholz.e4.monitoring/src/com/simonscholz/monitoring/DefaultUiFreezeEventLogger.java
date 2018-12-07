@@ -23,7 +23,7 @@ import com.simonscholz.services.monitoring.UiFreezeEvent;
  * Writes {@link UiFreezeEvent}s to the Eclipse error log.
  */
 public class DefaultUiFreezeEventLogger implements Consumer<UiFreezeEvent> {
-	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss.SSS"); //$NON-NLS-1$
+	private final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss.SSS"); //$NON-NLS-1$
 	private final long longEventErrorThresholdMillis;
 	private ILog log;
 
@@ -155,5 +155,4 @@ public class DefaultUiFreezeEventLogger implements Consumer<UiFreezeEvent> {
 	private static String getClassAndHashCode(LockInfo info) {
 		return String.format("%s@%08x", info.getClassName(), info.getIdentityHashCode()); //$NON-NLS-1$
 	}
-
 }
