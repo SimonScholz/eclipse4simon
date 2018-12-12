@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="com.simonscholz.app.sample" id="com.simonscholz.app.sample.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true">
+<product name="com.simonscholz.sample" uid="App" id="com.simonscholz.sample.app.app" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -17,9 +17,9 @@
 
    <plugins>
       <plugin id="com.ibm.icu"/>
-      <plugin id="com.simonscholz.app.sample"/>
       <plugin id="com.simonscholz.e4.monitoring"/>
       <plugin id="com.simonscholz.e4.services"/>
+      <plugin id="com.simonscholz.sample.app"/>
       <plugin id="com.simonscholz.sample.service.freezeconsumer"/>
       <plugin id="javax.annotation"/>
       <plugin id="javax.inject"/>

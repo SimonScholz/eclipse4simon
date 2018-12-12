@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-
    <extension
-         id="product"
+         id="app"
          point="org.eclipse.core.runtime.products">
       <product
             application="org.eclipse.e4.ui.workbench.swt.E4Application"
-            name="com.simonscholz.app.sample">
+            name="com.simonscholz.sample">
          <property
                name="lifeCycleURI"
-               value="bundleclass://com.simonscholz.app.sample/com.simonscholz.app.sample.E4LifeCycle">
+               value="bundleclass://com.simonscholz.sample.app/com.simonscholz.app.sample.E4LifeCycle">
          </property>
          <property
                name="applicationCSS"
-               value="platform:/plugin/com.simonscholz.app.sample/css/default.css">
+               value="platform:/plugin/com.simonscholz.sample.app/css/default.css">
          </property>
-         <property
-               name="appName"
-               value="com.simonscholz.app.sample">
-         </property>
+          <property
+                name="appName"
+                value="com.simonscholz.sample">
+          </property>
       </product>
    </extension>
-
 </plugin>

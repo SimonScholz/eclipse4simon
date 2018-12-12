@@ -3,13 +3,13 @@
   <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.window.main" label="Eclipse 4 RCP Application" width="500" height="400">
     <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.partsashcontainer.sample">
       <children xsi:type="basic:PartStack" xmi:id="_6wlLk8gZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.partstack.sample">
-        <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.part.sample" contributionURI="bundleclass://com.simonscholz.app.sample/com.simonscholz.app.sample.parts.SamplePart" iconURI="platform:/plugin/com.simonscholz.app.sample/icons/home.png" label="Sample Part"/>
+        <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.part.sample" contributionURI="bundleclass://com.simonscholz.sample.app/com.simonscholz.app.sample.parts.SamplePart" iconURI="platform:/plugin/com.simonscholz.sample.app/icons/home.png" label="Sample Part"/>
       </children>
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
       <children xsi:type="menu:Menu" xmi:id="_6wlLisgZEeSyMNYR5xypkQ" elementId="file" label="File">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLi8gZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handleditem.file.open" label="Open" iconURI="platform:/plugin/com.simonscholz.app.sample/icons/open_in_app.png" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjMgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handleditem.save" label="Save" iconURI="platform:/plugin/com.simonscholz.app.sample/icons/save_edit.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLi8gZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handleditem.file.open" label="Open" iconURI="platform:/plugin/com.simonscholz.sample.app/icons/open_in_app.png" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjMgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handleditem.save" label="Save" iconURI="platform:/plugin/com.simonscholz.sample.app/icons/save_edit.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjcgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handleditem.quit" label="Quit" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_6wlLjsgZEeSyMNYR5xypkQ" elementId="help" label="Help">
@@ -18,15 +18,15 @@
     </mainMenu>
     <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.trimbar.top">
       <children xsi:type="menu:ToolBar" xmi:id="_6wlLlsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.toolbar">
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLmMgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handleditem.trimbar.top.save" iconURI="platform:/plugin/com.simonscholz.app.sample/icons/save_edit.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLl8gZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handleditem.trimbar.top.open" iconURI="platform:/plugin/com.simonscholz.app.sample/icons/open_in_app.png" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLmMgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handleditem.trimbar.top.save" iconURI="platform:/plugin/com.simonscholz.sample.app/icons/save_edit.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLl8gZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handleditem.trimbar.top.open" iconURI="platform:/plugin/com.simonscholz.sample.app/icons/open_in_app.png" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
       </children>
     </trimBars>
   </children>
-  <handlers xmi:id="_6wlLfcgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handler.quitCommand" contributionURI="bundleclass://com.simonscholz.app.sample/com.simonscholz.app.sample.handlers.QuitHandler" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
-  <handlers xmi:id="_6wlLgcgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handler.openCommand" contributionURI="bundleclass://com.simonscholz.app.sample/com.simonscholz.app.sample.handlers.OpenHandler" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
-  <handlers xmi:id="_6wlLhMgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handler.saveCommand" contributionURI="bundleclass://com.simonscholz.app.sample/com.simonscholz.app.sample.handlers.SaveHandler" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
-  <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handler.aboutCommand" contributionURI="bundleclass://com.simonscholz.app.sample/com.simonscholz.app.sample.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_6wlLfcgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handler.quitCommand" contributionURI="bundleclass://com.simonscholz.sample.app/com.simonscholz.app.sample.handlers.QuitHandler" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_6wlLgcgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handler.openCommand" contributionURI="bundleclass://com.simonscholz.sample.app/com.simonscholz.app.sample.handlers.OpenHandler" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_6wlLhMgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handler.saveCommand" contributionURI="bundleclass://com.simonscholz.sample.app/com.simonscholz.app.sample.handlers.SaveHandler" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handler.aboutCommand" contributionURI="bundleclass://com.simonscholz.sample.app/com.simonscholz.app.sample.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.keybinding.m1q" keySequence="M1+Q" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.keybinding.m1o" keySequence="M1+O" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
