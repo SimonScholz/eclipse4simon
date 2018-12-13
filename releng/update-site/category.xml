@@ -12,7 +12,20 @@
    <feature id="com.simonscholz.e4.services.feature.source">
       <category name="Developer-Resources"/>
    </feature>
+   <feature id="Project-Reactor">
+      <category name="reactor"/>
+   </feature>
+   <feature id="com.simonscholz.reactor.feature">
+      <category name="reactor"/>
+   </feature>
+   <feature id="com.simonscholz.reactor.feature.source">
+      <category name="Developer-Resources"/>
+   </feature>
+   <feature id="Project-Reactor.source">
+      <category name="Developer-Resources"/>
+   </feature>
    <category-def name="Service-API" label="Service API"/>
    <category-def name="Freeze-Monitoring" label="Freeze Monitoring"/>
    <category-def name="Developer-Resources" label="Developer Resources"/>
+   <category-def name="reactor" label="Reactor IO"/>
 </site>
