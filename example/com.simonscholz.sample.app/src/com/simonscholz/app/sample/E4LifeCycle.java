@@ -4,9 +4,6 @@ import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.extensions.Preference;
 import org.eclipse.e4.ui.workbench.lifecycle.PostContextCreate;
-import org.eclipse.e4.ui.workbench.lifecycle.PreSave;
-import org.eclipse.e4.ui.workbench.lifecycle.ProcessAdditions;
-import org.eclipse.e4.ui.workbench.lifecycle.ProcessRemovals;
 import org.eclipse.swt.widgets.Display;
 
 import com.simonscholz.services.monitoring.FreezeMonitorService;
@@ -26,17 +23,5 @@ public class E4LifeCycle {
 		prefs.putBoolean(PreferenceConstants.MONITORING_ENABLED, true);
 		
 		freezeMonitorService.setPreferencesAndStartIfNecessary(prefs, display);
-	}
-
-	@PreSave
-	void preSave(IEclipseContext workbenchContext) {
-	}
-
-	@ProcessAdditions
-	void processAdditions(IEclipseContext workbenchContext) {
-	}
-
-	@ProcessRemovals
-	void processRemovals(IEclipseContext workbenchContext) {
 	}
 }

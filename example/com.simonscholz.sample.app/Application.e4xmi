@@ -3,7 +3,7 @@
   <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.window.main" label="Eclipse 4 RCP Application" width="500" height="400">
     <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.partsashcontainer.sample">
       <children xsi:type="basic:PartStack" xmi:id="_6wlLk8gZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.partstack.sample">
-        <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.part.sample" contributionURI="bundleclass://com.simonscholz.sample.app/com.simonscholz.app.sample.parts.SamplePart" iconURI="platform:/plugin/com.simonscholz.sample.app/icons/home.png" label="Sample Part"/>
+        <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.part.sample" contributionURI="bundleclass://com.simonscholz.sample.app/com.simonscholz.app.sample.parts.SamplePart" label="Sample Part" iconURI="platform:/plugin/com.simonscholz.sample.app/icons/home.png"/>
       </children>
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
@@ -20,6 +20,7 @@
       <children xsi:type="menu:ToolBar" xmi:id="_6wlLlsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.toolbar">
         <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLmMgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handleditem.trimbar.top.save" iconURI="platform:/plugin/com.simonscholz.sample.app/icons/save_edit.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLl8gZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.handleditem.trimbar.top.open" iconURI="platform:/plugin/com.simonscholz.sample.app/icons/open_in_app.png" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:DirectToolItem" xmi:id="_MndzgP4uEeii7Pf-WeITaA" elementId="com.simonscholz.sample.app.directtoolitem.testreactor" label="Test Reactor" contributionURI="bundleclass://com.simonscholz.sample.app/com.simonscholz.app.sample.handlers.ReactorHandler"/>
       </children>
     </trimBars>
   </children>

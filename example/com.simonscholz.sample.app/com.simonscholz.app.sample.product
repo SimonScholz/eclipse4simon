@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="com.simonscholz.sample" uid="App" id="com.simonscholz.sample.app.app" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true">
+<product name="com.simonscholz.sample" uid="App" id="com.simonscholz.sample.app.app" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -19,8 +19,12 @@
       <plugin id="com.ibm.icu"/>
       <plugin id="com.simonscholz.e4.monitoring"/>
       <plugin id="com.simonscholz.e4.services"/>
+      <plugin id="com.simonscholz.reactor"/>
+      <plugin id="com.simonscholz.reactor.ui"/>
       <plugin id="com.simonscholz.sample.app"/>
       <plugin id="com.simonscholz.sample.service.freezeconsumer"/>
+      <plugin id="io.projectreactor.addons.reactor-extra"/>
+      <plugin id="io.projectreactor.reactor-core"/>
       <plugin id="javax.annotation"/>
       <plugin id="javax.inject"/>
       <plugin id="javax.xml"/>
@@ -81,6 +85,7 @@
       <plugin id="org.eclipse.equinox.preferences"/>
       <plugin id="org.eclipse.equinox.region" fragment="true"/>
       <plugin id="org.eclipse.equinox.registry"/>
+      <plugin id="org.eclipse.equinox.supplement"/>
       <plugin id="org.eclipse.equinox.transforms.hook" fragment="true"/>
       <plugin id="org.eclipse.equinox.util"/>
       <plugin id="org.eclipse.equinox.weaving.hook" fragment="true"/>
@@ -95,12 +100,24 @@
       <plugin id="org.eclipse.swt.gtk.linux.ppc64" fragment="true"/>
       <plugin id="org.eclipse.swt.gtk.linux.x86_64" fragment="true"/>
       <plugin id="org.eclipse.swt.win32.win32.x86_64" fragment="true"/>
+      <plugin id="org.reactivestreams.reactive-streams"/>
       <plugin id="org.slf4j.api"/>
       <plugin id="org.w3c.css.sac"/>
       <plugin id="org.w3c.dom.events"/>
       <plugin id="org.w3c.dom.smil"/>
       <plugin id="org.w3c.dom.svg"/>
    </plugins>
+
+   <features>
+      <feature id="com.simonscholz.e4.monitoring.feature" version="1.0.0.qualifier"/>
+      <feature id="com.simonscholz.e4.services.feature" version="1.0.0.qualifier"/>
+      <feature id="org.eclipse.e4.rcp"/>
+      <feature id="com.simonscholz.reactor.feature" version="1.0.0.qualifier"/>
+      <feature id="org.eclipse.emf.ecore"/>
+      <feature id="Project-Reactor"/>
+      <feature id="org.eclipse.emf.common"/>
+      <feature id="com.simonscholz.samples.feature" version="1.0.0.qualifier"/>
+   </features>
 
 
 </product>
