@@ -15,5 +15,7 @@
 	<modules>
 		<module>com.simonscholz.e4.services.feature</module>
 		<module>com.simonscholz.e4.monitoring.feature</module>
+		<module>com.simonscholz.reactor.feature</module>
+		<module>com.simonscholz.samples.feature</module>
 	</modules>
 </project>
