@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.simonscholz.reactor.feature"
-      label="Feature"
+      label="Reactor Feature"
       version="1.0.0.qualifier"
       provider-name="SIMONSCHOLZ">
 
