@@ -46,8 +46,8 @@ public final class JobScheduler implements Scheduler {
 		return new JobScheduler(jobName, null);
 	}
 
-	public static Scheduler createWithMonitorConsumer(String jobName, Consumer<IProgressMonitor> monitorConsumer) {
-		return new JobScheduler(jobName, null);
+	public static Scheduler create(String jobName, Consumer<IProgressMonitor> monitorConsumer) {
+		return new JobScheduler(jobName, monitorConsumer);
 	}
 
 	@Override
