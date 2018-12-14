@@ -15,7 +15,9 @@ package com.simonscholz.reactor.jobs;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Consumer;
 
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 
 import reactor.core.Disposable;
@@ -30,23 +32,29 @@ import reactor.util.context.Context;
 public final class JobScheduler implements Scheduler {
 
 	private String jobName;
+	private Consumer<IProgressMonitor> monitorConsumer;
 
-	JobScheduler(String jobName) {
+	JobScheduler(String jobName, Consumer<IProgressMonitor> monitorConsumer) {
 		this.jobName = jobName;
+		this.monitorConsumer = monitorConsumer;
 	}
 
 	/**
 	 * @return a new {@link Scheduler}
 	 */
 	public static Scheduler create(String jobName) {
-		return new JobScheduler(jobName);
+		return new JobScheduler(jobName, null);
+	}
+
+	public static Scheduler createWithMonitorConsumer(String jobName, Consumer<IProgressMonitor> monitorConsumer) {
+		return new JobScheduler(jobName, null);
 	}
 
 	@Override
 	public Disposable schedule(Runnable task) {
 		JobScheduledDirectAction a = new JobScheduledDirectAction(task);
 
-		Job.create(jobName, monitor -> a.run()).schedule();
+		Job.create(jobName, monitor -> consumeMonitorAndRun(monitor, a)).schedule();
 
 		return a;
 	}
@@ -58,7 +66,7 @@ public final class JobScheduler implements Scheduler {
 		}
 
 		JobScheduledDirectAction a = new JobScheduledDirectAction(task);
-		Job.create(jobName, monitor -> a.run()).schedule(unit.toMillis(delay));
+		Job.create(jobName, monitor -> consumeMonitorAndRun(monitor, a)).schedule(unit.toMillis(delay));
 
 		return a;
 	}
@@ -68,30 +76,39 @@ public final class JobScheduler implements Scheduler {
 
 		long initialDelayMillis = unit.toMillis(initialDelay);
 
-		JobPeriodicDirectAction a = new JobPeriodicDirectAction(jobName, task, System.currentTimeMillis() + initialDelayMillis,
-				unit.toMillis(period));
+		JobPeriodicDirectAction a = new JobPeriodicDirectAction(jobName, task,
+				System.currentTimeMillis() + initialDelayMillis, unit.toMillis(period));
 
 		if (initialDelay <= 0) {
-			Job.create(jobName, monitor -> a.run()).schedule();
+			Job.create(jobName, monitor -> consumeMonitorAndRun(monitor, a)).schedule();
 		} else {
-			Job.create(jobName, monitor -> a.run()).schedule(initialDelayMillis);
+			Job.create(jobName, monitor -> consumeMonitorAndRun(monitor, a)).schedule(initialDelayMillis);
 		}
 
 		return a;
 
 	}
 
+	private void consumeMonitorAndRun(IProgressMonitor monitor, Runnable runnable) {
+		if (monitorConsumer != null) {
+			monitorConsumer.accept(monitor);
+		}
+		runnable.run();
+	}
+
 	@Override
 	public Worker createWorker() {
-		return new JobWorker(jobName);
+		return new JobWorker(jobName, monitorConsumer);
 	}
 
 	static final class JobWorker implements Worker {
 		volatile boolean unsubscribed;
 		private String jobName;
-		
-		public JobWorker(String jobName) {
+		private Consumer<IProgressMonitor> monitorConsumer;
+
+		public JobWorker(String jobName, Consumer<IProgressMonitor> monitorConsumer) {
 			this.jobName = jobName;
+			this.monitorConsumer = monitorConsumer;
 		}
 
 		@Override
@@ -107,7 +124,7 @@ public final class JobScheduler implements Scheduler {
 			if (!unsubscribed) {
 				JobScheduledAction a = new JobScheduledAction(action, this);
 
-				Job.create(jobName, monitor -> a.run()).schedule();
+				Job.create(jobName, monitor -> consumeMonitorAndRun(monitor, a)).schedule();
 
 				return a;
 			}
@@ -124,7 +141,7 @@ public final class JobScheduler implements Scheduler {
 			if (!unsubscribed) {
 				JobScheduledAction a = new JobScheduledAction(action, this);
 
-				Job.create(jobName, monitor -> a.run()).schedule(unit.toMillis(delayTime));
+				Job.create(jobName, monitor -> consumeMonitorAndRun(monitor, a)).schedule(unit.toMillis(delayTime));
 
 				return a;
 			}
@@ -136,16 +153,23 @@ public final class JobScheduler implements Scheduler {
 		public Disposable schedulePeriodically(Runnable task, long initialDelay, long period, TimeUnit unit) {
 			long initialDelayMillis = unit.toMillis(initialDelay);
 
-			JobPeriodicAction a = new JobPeriodicAction(jobName, task, this, System.currentTimeMillis() + initialDelayMillis,
-					unit.toMillis(period));
+			JobPeriodicAction a = new JobPeriodicAction(jobName, task, this,
+					System.currentTimeMillis() + initialDelayMillis, unit.toMillis(period));
 
 			if (initialDelay <= 0) {
-				Job.create(jobName, monitor -> a.run()).schedule();
+				Job.create(jobName, monitor -> consumeMonitorAndRun(monitor, a)).schedule();
 			} else {
-				Job.create(jobName, monitor -> a.run()).schedule(initialDelayMillis);
+				Job.create(jobName, monitor -> consumeMonitorAndRun(monitor, a)).schedule(initialDelayMillis);
 			}
 
 			return a;
+		}
+
+		private void consumeMonitorAndRun(IProgressMonitor monitor, Runnable runnable) {
+			if (monitorConsumer != null) {
+				monitorConsumer.accept(monitor);
+			}
+			runnable.run();
 		}
 
 		/**
@@ -288,7 +312,7 @@ public final class JobScheduler implements Scheduler {
 
 		private String jobName;
 
-		public JobPeriodicAction(String jobName,Runnable task, JobWorker parent, long start, long periodMillis) {
+		public JobPeriodicAction(String jobName, Runnable task, JobWorker parent, long start, long periodMillis) {
 			this.jobName = jobName;
 			this.task = task;
 			this.start = start;
