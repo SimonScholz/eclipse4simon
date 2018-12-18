@@ -117,6 +117,7 @@
       <feature id="Project-Reactor"/>
       <feature id="org.eclipse.emf.common"/>
       <feature id="com.simonscholz.samples.feature" version="1.0.0.qualifier"/>
+      <feature id="org.eclipse.nebula.widgets.feature" version="1.0.0.qualifier"/>
    </features>
 
 

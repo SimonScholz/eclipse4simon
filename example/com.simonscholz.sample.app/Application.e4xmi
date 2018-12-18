@@ -5,6 +5,9 @@
       <children xsi:type="basic:PartStack" xmi:id="_6wlLk8gZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.partstack.sample">
         <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.part.sample" contributionURI="bundleclass://com.simonscholz.sample.app/com.simonscholz.app.sample.parts.SamplePart" label="Sample Part" iconURI="platform:/plugin/com.simonscholz.sample.app/icons/home.png"/>
       </children>
+      <children xsi:type="basic:PartStack" xmi:id="_NxDssAKrEemIF_9K9VfdEw" elementId="com.simonscholz.sample.app.partstack.0">
+        <children xsi:type="basic:Part" xmi:id="_OL-HEAKrEemIF_9K9VfdEw" elementId="com.simonscholz.sample.app.part.0" contributionURI="bundleclass://com.simonscholz.sample.app/com.simonscholz.app.sample.handlers.SuggestBoxPart"/>
+      </children>
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
       <children xsi:type="menu:Menu" xmi:id="_6wlLisgZEeSyMNYR5xypkQ" elementId="file" label="File">
