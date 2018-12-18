@@ -19,7 +19,7 @@
       <category name="Developer-Resources"/>
    </feature>
    <feature id="org.eclipse.nebula.widgets.feature">
-      <category name="Widgets"/>
+      <category name="widgets"/>
    </feature>
    <category-def name="Service-API" label="Service API"/>
    <category-def name="Freeze-Monitoring" label="Freeze Monitoring"/>
