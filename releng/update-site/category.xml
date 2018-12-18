@@ -18,6 +18,9 @@
    <feature id="com.simonscholz.reactor.feature.source">
       <category name="Developer-Resources"/>
    </feature>
+  <feature id="org.eclipse.nebula.widgets.feature.source">
+      <category name="Developer-Resources"/>
+   </feature>
    <feature id="org.eclipse.nebula.widgets.feature">
       <category name="widgets"/>
    </feature>
