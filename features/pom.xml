@@ -17,5 +17,6 @@
 		<module>com.simonscholz.e4.monitoring.feature</module>
 		<module>com.simonscholz.reactor.feature</module>
 		<module>com.simonscholz.samples.feature</module>
+		<module>org.eclipse.nebula.widgets.feature</module>
 	</modules>
 </project>

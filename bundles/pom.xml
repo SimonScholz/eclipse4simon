@@ -17,5 +17,7 @@
 		<module>com.simonscholz.e4.monitoring</module>
 		<module>com.simonscholz.reactor</module>
 		<module>com.simonscholz.reactor.ui</module>
+		<module>org.eclipse.nebula.widgets.proposal</module>
+		<module>org.eclipse.nebula.widgets.suggestbox</module>
 	</modules>
 </project>
