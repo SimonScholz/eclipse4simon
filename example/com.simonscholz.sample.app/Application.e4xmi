@@ -4,9 +4,10 @@
     <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.partsashcontainer.sample">
       <children xsi:type="basic:PartStack" xmi:id="_6wlLk8gZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.partstack.sample">
         <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="com.simonscholz.app.sample.part.sample" contributionURI="bundleclass://com.simonscholz.sample.app/com.simonscholz.app.sample.parts.SamplePart" label="Sample Part" iconURI="platform:/plugin/com.simonscholz.sample.app/icons/home.png"/>
+        <children xsi:type="basic:Part" xmi:id="_N9mrgD5iEemL756IdEHm0A" elementId="com.simonscholz.sample.app.part.rtree" contributionURI="bundleclass://com.simonscholz.sample.app/com.simonscholz.app.sample.parts.RTreePart" label="RTree"/>
       </children>
       <children xsi:type="basic:PartStack" xmi:id="_NxDssAKrEemIF_9K9VfdEw" elementId="com.simonscholz.sample.app.partstack.0">
-        <children xsi:type="basic:Part" xmi:id="_OL-HEAKrEemIF_9K9VfdEw" elementId="com.simonscholz.sample.app.part.0" contributionURI="bundleclass://com.simonscholz.sample.app/com.simonscholz.app.sample.handlers.SuggestBoxPart"/>
+        <children xsi:type="basic:Part" xmi:id="_OL-HEAKrEemIF_9K9VfdEw" elementId="com.simonscholz.sample.app.part.rtree" contributionURI="bundleclass://com.simonscholz.sample.app/com.simonscholz.app.sample.parts.SuggestBoxPart" label="SuggestBox"/>
       </children>
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
