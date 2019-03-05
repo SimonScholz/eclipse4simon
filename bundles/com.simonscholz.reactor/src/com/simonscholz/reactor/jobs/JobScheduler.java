@@ -46,6 +46,26 @@ public final class JobScheduler implements Scheduler {
 		return new JobScheduler(jobName, null);
 	}
 
+	/**
+	 * Create a {@link Scheduler}, which can pass the monitor of a running
+	 * {@link Job} to a {@link Consumer}.
+	 * 
+	 * <p>
+	 * You can consume and store the monitor for a certain thread to interact with
+	 * the {@link IProgressMonitor} inside the publisher chain.
+	 * </p>
+	 * <p>For example:</p>
+	 * <pre>
+	 * Mono<String> mono = // ..
+	 * ProgressMonitorManager progressMonitorManager = // ..
+	 * mono.subscribeOn(
+	 * </pre>
+	 * 
+	 * @param jobName         name of the {@link Job}, which will be run
+	 * @param monitorConsumer {@link Consumer}, which can will receive the
+	 *                        {@link IProgressMonitor} of a running {@link Job}
+	 * @return {@link Scheduler}
+	 */
 	public static Scheduler create(String jobName, Consumer<IProgressMonitor> monitorConsumer) {
 		return new JobScheduler(jobName, monitorConsumer);
 	}
