@@ -1,5 +1,5 @@
 
-package com.simonscholz.app.sample.handlers;
+package com.simonscholz.app.sample.parts;
 
 import java.util.Arrays;
 import java.util.List;
